@@ -1,0 +1,81 @@
+{% extends "layouts/list.html" %}
+{% load static %}
+
+{% block title %}
+Merlin
+{% endblock %}
+  
+
+                                            {% block button %}
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-6">
+                                                    <div class="btn-group">
+                                                        <button  onclick="abrir_modal('{% url 'Merlin:CrearCategoria' %}')"
+                                                            class="btn btn-primary" >
+                                                            Agregar Nuevo <i class="fa fa-plus"></i>
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endblock %} 
+                                                    {% block columns %}
+                                                    <tr>
+                                                        <th> N</th>
+                                                        <th> Nombre </th>  
+                                                        <th> Descripción</th>
+                                                        <th> Opciones </th>
+                                                    </tr>
+                                                    {% endblock %} 
+                                                    {% block rows %}
+                                                    
+                                        
+                                                    {% endblock %}
+ 
+             
+
+{% block js %}
+
+<script type="application/javascript">
+    $(function () {
+        $('#data').DataTable({
+            responsive: true,
+            autoWidth: false,
+            destroy: true,
+            deferRender: true,
+            ajax: {
+                url: window.location.pathname,
+                type: 'POST',
+                data: {
+                    'action': 'searchdata'
+                },
+                dataSrc: ""
+            },
+            columns: [
+                {"data": "id"},
+                {"data": "name"},
+                {"data": "desc"},
+                {"data": "desc"},
+            ],
+            columnDefs: [
+                {
+                    targets: [-1],
+                    class: 'text-center',
+                    orderable: false,
+                    render: function (data, type, row) {
+                        var buttons = '<a onclick="abrir_modal(\'/UpdateCategoria/' + row.id + '/\');"  class="tblEditBtn"><i class="fa fa-pencil"></i></a> ';
+                        buttons += '<a href=" ' + row.id + '/" type="button" class="tblDelBtn"><i class="fa fa-trash-o"></i></a>';
+                        return buttons;
+                    }
+                },
+            ],
+            initComplete: function (settings, json) {
+    
+            }
+        });
+    });
+     
+</script>  
+
+{% endblock %}
+ 

@@ -1,0 +1,58 @@
+{% extends "layouts/list.html" %}
+{% load static %}
+
+{% block title %}
+Merlin
+{% endblock %}
+  
+
+                                            {% block button %}
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-6">
+                                                    <div class="btn-group">
+                                                        <button  onclick="abrir_modal('{% url 'Merlin:CrearVenta' %}')"
+                                                            class="btn btn-primary" >
+                                                            Agregar Nuevo <i class="fa fa-plus"></i>
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endblock %} 
+                                                    {% block columns %}
+                                                    <tr>
+                                                        <th></th>
+                                                        <th> Cliente </th>
+                                                        <th> SubTotal </th>
+                                                        <th> Iva </th>
+                                                        <th> Total </th>  
+                                                        <th> Opciones </th>
+                                                    </tr> 
+                                                    {% endblock %} 
+                                                    {% block rows %}
+                                                    {% for list in object_list %}
+                                                    <tr class="odd gradeX">
+                                                        <td class="patient-img">
+                                                           {{list.id}}
+                                                        </td>
+                                                        <td>{{list.cli}}</td>
+                                                        <td>{{list.subtotal}}</td> 
+                                                        <td>{{list.iva}}</td>                                                        
+                                                        <td>{{list.total}}</td> 
+                                                        <td>
+                                                            <a onclick="abrir_modal('{% url 'Merlin:UpdateVenta' list.id %}')"
+                                                                class="tblEditBtn">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            <a onclick="abrir_modal('{% url 'Merlin:DeleteVenta' list.id %}')" class="tblDelBtn">
+                                                                <i class="fa fa-trash-o"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr> 
+                                                    {% endfor %}
+                                        
+                                                    {% endblock %}
+
+
+ 
+ 

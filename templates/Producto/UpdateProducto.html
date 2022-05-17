@@ -1,0 +1,33 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Registrar</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <form action="{% url 'Merlin:UpdateProducto' object.pk %}" method="post" class="form-horizontal"  enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card card-box"> 
+                            <div class="card-body" id="bar-parent">
+                                    <div class="form-body">  
+                                       {{form.as_p}}
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button onclick="cerrar_modal();"  type="button" class="btn btn-default" >Cancelar</button>
+                <button class="btn btn-info">
+                    Aceptar
+                </button>
+            </div>    
+          </form>        
+    </div>
+</div>
+ 

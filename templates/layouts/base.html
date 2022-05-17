@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- BEGIN HEAD -->
+
+
+{% load static %}
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	
+	<title>{% block title %}{% endblock %}</title>
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+	<!-- icons -->
+	<link href="{% static 'fonts/simple-line-icons/simple-line-icons.min.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'fonts/font-awesome/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'fonts/font-awesome/v6/css/all.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'fonts/material-design-icons/material-icon.css'%}" rel="stylesheet" type="text/css" />
+	<!--bootstrap -->
+	<link href="{% static 'plugins/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'plugins/summernote/summernote.css'%}" rel="stylesheet">
+	<!-- Material Design Lite CSS -->
+	<link rel="stylesheet" href="{% static 'plugins/material/material.min.css'%}">
+	<link rel="stylesheet" href="{% static 'css/material_style.css'%}">
+	<!-- inbox style -->
+	<link href="{% static 'css/pages/inbox.min.css'%}" rel="stylesheet" type="text/css" />
+	<!-- Theme Styles -->
+	<link href="{% static 'css/theme/light/theme_style.css'%}" rel="stylesheet" id="rt_style_components" type="text/css" />
+	<link href="{% static 'css/plugins.min.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/theme/light/style.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/responsive.css'%}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/theme/light/theme-color.css'%}" rel="stylesheet" type="text/css" />
+	<!-- favicon -->
+	{% block css %}{% endblock %}
+	<link rel="shortcut icon" href="https://www.einfosoft.com/templates/admin/smart/source/assets/img/favicon.ico" />
+</head>
+<!-- END HEAD -->
+
+<body
+	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+    <div class="page-wrapper">
+		<!-- start header -->
+		<div class="page-header navbar navbar-fixed-top">
+			<div class="page-header-inner ">
+				<!-- logo start -->
+				<div class="page-logo">
+					<a href="{% url 'Merlin:Inicio'%}">
+						<span class="logo-icon material-icons fa-rotate-45">school</span>
+						<span class="logo-default">Merlin</span> </a>
+				</div>
+				<!-- logo end -->
+				<ul class="nav navbar-nav navbar-left in">
+					<li><a href="#" class="menu-toggler sidebar-toggler"><i data-feather="menu"></i></a></li>
+				</ul>
+				<form class="search-form-opened" action="#" method="GET">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search..." name="query">
+						<span class="input-group-btn">
+							<a href="javascript:;" class="btn submit">
+								<i class="icon-magnifier"></i>
+							</a>
+						</span>
+					</div>
+				</form>
+				<!-- start mobile menu -->
+				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+					<span></span>
+				</a>
+				<!-- end mobile menu -->
+				<!-- start header menu -->
+				<div class="top-menu">
+					<ul class="nav navbar-nav pull-right"> 
+						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true">
+								<i data-feather="bell"></i>
+								<span class="badge headerBadgeColor1"> 6 </span>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="external">
+									<h3><span class="bold">Notifications</span></h3>
+									<span class="notification-label purple-bgcolor">New 6</span>
+								</li>
+								<li>
+									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
+										<li>
+											<a href="javascript:;">
+												<span class="time">just now</span>
+												<span class="details">
+													<span class="notification-icon circle deepPink-bgcolor"><i
+															class="fa fa-check"></i></span>
+													Congratulations!. </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												<span class="time">3 mins</span>
+												<span class="details">
+													<span class="notification-icon circle purple-bgcolor"><i
+															class="fa fa-user o"></i></span>
+													<b>John Micle </b>is now following you. </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												<span class="time">7 mins</span>
+												<span class="details">
+													<span class="notification-icon circle blue-bgcolor"><i
+															class="fa fa-comments-o"></i></span>
+													<b>Sneha Jogi </b>sent you a message. </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												<span class="time">12 mins</span>
+												<span class="details">
+													<span class="notification-icon circle pink"><i
+															class="fa fa-heart"></i></span>
+													<b>Ravi Patel </b>like your photo. </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												<span class="time">15 mins</span>
+												<span class="details">
+													<span class="notification-icon circle yellow"><i
+															class="fa fa-warning"></i></span> Warning! </span>
+											</a>
+										</li>
+										<li>
+											<a href="javascript:;">
+												<span class="time">10 hrs</span>
+												<span class="details">
+													<span class="notification-icon circle red"><i
+															class="fa fa-times"></i></span> Application error. </span>
+											</a>
+										</li>
+									</ul>
+									<div class="dropdown-menu-footer">
+										<a href="javascript:void(0)"> All notifications </a>
+									</div>
+								</li>
+							</ul>
+						</li>
+						<!-- end notification dropdown -->
+						<!-- start message dropdown -->					
+				
+						
+						<!-- end message dropdown -->
+						<!-- start manage user dropdown -->
+						<li class="dropdown dropdown-user">
+							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true">
+								<img alt="" class="img-circle " src="../assets/img/dp.jpg" />
+								<span class="username username-hide-on-mobile"> Sneha
+							</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li>
+									<a href="user_profile.html">
+										<i class="icon-user"></i> Profile </a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="icon-settings"></i> Settings
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="icon-directions"></i> Help
+									</a>
+								</li>
+								<li class="divider"> </li>
+								<li>
+									<a href="lock_screen.html">
+										<i class="icon-lock"></i> Lock
+									</a>
+								</li> 
+							</ul>
+						</li>
+						<li><a href="{% url 'Merlin:Logout'%}"><i class="fa fa-power-off"></i>Salir</i> </a></li>
+						 
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- end header -->
+		<!-- start color quick setting -->
+		<div class="settingSidebar">
+			<a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+			</a>
+			<div class="settingSidebar-body ps-container ps-theme-default">
+				<div class=" fade show active">
+					<div class="setting-panel-header">Setting Panel
+					</div>
+					<div class="quick-setting slimscroll-style">
+						<ul id="themecolors">
+							<li>
+								<p class="sidebarSettingTitle">Sidebar Color</p>
+							</li>
+							<li class="complete">
+								<div class="theme-color sidebar-theme">
+									<a href="#" data-theme="white"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="dark"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="blue"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="indigo"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="cyan"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="green"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="red"><span class="head"></span><span
+											class="cont"></span></a>
+								</div>
+							</li>
+							<li>
+								<p class="sidebarSettingTitle">Header Brand color</p>
+							</li>
+							<li class="theme-option">
+								<div class="theme-color logo-theme">
+									<a href="#" data-theme="logo-white"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-dark"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-blue"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-indigo"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-cyan"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-green"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="logo-red"><span class="head"></span><span
+											class="cont"></span></a>
+								</div>
+							</li>
+							<li>
+								<p class="sidebarSettingTitle">Header color</p>
+							</li>
+							<li class="theme-option">
+								<div class="theme-color header-theme">
+									<a href="#" data-theme="header-white"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-dark"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-blue"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-indigo"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-cyan"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-green"><span class="head"></span><span
+											class="cont"></span></a>
+									<a href="#" data-theme="header-red"><span class="head"></span><span
+											class="cont"></span></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end color quick setting -->
+		<!-- start page container -->
+		<div class="page-container">
+			<!-- start sidebar menu -->
+			<div class="sidebar-container">
+				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+					<div id="remove-scroll" class="left-sidemenu">
+						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
+							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+							<li class="sidebar-toggler-wrapper hide">
+								<div class="sidebar-toggler">
+									<span></span>
+								</div>
+							</li>
+							<li class="sidebar-user-panel">
+								<div class="sidebar-user">
+									<div class="sidebar-user-picture">
+										<img alt="image" src="../assets/img/dp.jpg">
+									</div>
+									<div class="sidebar-user-details">
+										<div class="user-name">{{user.first_name}} {{user.last_name}}</div>
+										<div class="user-role">Administrator</div>
+									</div>
+								</div>
+							</li>
+							 
+							<li class="nav-item">
+								<a href="{% url 'Merlin:ListarCategoria' %}" class="nav-link nav-toggle"> <i class="fa fa-sitemap"></i>
+									<span class="title">Categoria</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'Merlin:ListarProducto' %}" class="nav-link nav-toggle"> <i class="fa fa-cubes"></i>
+									<span class="title">Producto</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a href="{% url 'Merlin:ListarCliente' %}" class="nav-link nav-toggle"> <i class="fa fa-users"></i>
+									<span class="title">Cliente</span>
+								</a>
+							</li> 
+							<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"> <i class="fa fa-shopping-cart"></i>
+									<span class="title">Venta</span> <span class="arrow"></span>
+								</a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="{% url 'Merlin:ListarVenta' %}" class="nav-link "> <span class="title">Venta</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="{% url 'Merlin:ListarDetVenta' %}" class="nav-link "> <span class="title"> 
+												Detalle Venta</span>
+										</a>
+									</li> 
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
+									<span class="title">Students</span><span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="all_students.html" class="nav-link "> <span class="title">All
+												Students</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="add_student.html" class="nav-link "> <span class="title">Add
+												Student</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="add_student_bootstrap.html" class="nav-link "> <span class="title">Add
+												Student Bootstrap</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="edit_student.html" class="nav-link "> <span class="title">Edit
+												Student</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="student_profile.html" class="nav-link "> <span class="title">About
+												Student</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+						 
+						 
+						 
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- end sidebar menu -->
+			<!-- start page content -->
+		
+            {% block content %} 
+ 
+            {% endblock %}
+			<!-- end page content -->
+			<!-- start chat sidebar -->
+			<div class="chat-sidebar-container" data-close-on-body-click="false">
+				<div class="chat-sidebar">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i
+									class="material-icons">chat</i>Chat
+								<span class="badge badge-danger">4</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i
+									class="material-icons">settings</i>
+								Settings
+							</a>
+						</li>
+					</ul>
+			 
+				</div>
+			</div>
+			<!-- end chat sidebar -->
+		</div>
+		<!-- end page container -->
+		<!-- start footer -->
+		<div class="page-footer">
+			<div class="page-footer-inner"> 2017 &copy; Smart University Theme By
+				<a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstar Theme</a>
+			</div>
+			<div class="scroll-to-top">
+				<i class="icon-arrow-up"></i>
+			</div>
+		</div>
+		<!-- end footer -->
+	</div>
+<!-- start js include path -->
+<script src="{% static 'plugins/jquery/jquery.min.js'%}"></script>
+<script src="{% static 'plugins/popper/popper.js'%}"></script>
+<script src="{% static 'plugins/jquery-blockui/jquery.blockui.min.js'%}"></script>
+<script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js'%}"></script>
+<script src="{% static 'plugins/feather/feather.min.js'%}"></script>
+<!-- bootstrap -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'plugins/bootstrap-switch/js/bootstrap-switch.min.js'%}"></script>
+<script src="{% static 'plugins/sparkline/jquery.sparkline.js'%}"></script>
+<script src="{% static 'js/pages/sparkline/sparkline-data.js'%}"></script>
+<!-- Common js-->
+<script src="{% static 'js/app.js'%}"></script>
+<script src="{% static 'js/layout.js'%}"></script>
+<script src="{% static 'js/theme-color.js'%}"></script>
+<!-- material -->
+<script src="{% static 'plugins/material/material.min.js'%}"></script> 
+{% block extrajs %}
+  
+
+{% endblock %}
+</body>
+
+ 
+</html>
+
+ 

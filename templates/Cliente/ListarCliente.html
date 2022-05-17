@@ -1,0 +1,71 @@
+{% extends "layouts/list.html" %}
+{% load static %}
+
+{% block title %}
+Merlin
+{% endblock %}
+  
+
+{% block button %}
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-6">
+                                                    <div class="btn-group">
+                                                        <button  onclick="abrir_modal('{% url 'Merlin:CrearCliente' %}')"
+                                                            class="btn btn-primary" >
+                                                            Agregar Nuevo <i class="fa fa-plus"></i>
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endblock %} 
+                                                    {% block columns %}
+                                                    <tr>
+                                                        <th></th>
+                                                        <th> Nombre </th>
+                                                        <th> Apellidos </th>
+                                                        <th> Cedula </th>
+                                                        <th> Fecha Nacimiento </th>
+                                                        <th> Direccion </th>  
+                                                        <th> Sexo </th>  
+                                                        <th> Opciones </th>
+                                                    </tr>
+                                                    {% endblock %} 
+                                                    {% block rows %}
+                                                    {% for list in object_list %}
+                                                    <tr class="odd gradeX">
+                                                        <td class="patient-img">
+                                                           {{list.id}}
+                                                        </td>
+                                                        <td>{{list.names}}</td>
+                                                        <td>{{list.surnames}}</td>
+                                                        <td>{{list.dni}}</td> 
+                                                        <td>{{list.birthday}}</td>  
+                                                        <td>{{list.address}}</td> 
+                                                        <td>{{list.gender}}</td> 
+                                                        <td>
+                                                            <a onclick="abrir_modal('{% url 'Merlin:UpdateCliente' list.id %}')"
+                                                                class="tblEditBtn">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            <a onclick="abrir_modal('{% url 'Merlin:DeleteCliente' list.id %}')" class="tblDelBtn">
+                                                                <i class="fa fa-trash-o"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr> 
+                                                    {% endfor %}
+                                                   
+                                                    
+                                        
+{% endblock %}
+
+
+
+{% block js %}
+
+<script type="application/javascript">
+    
+</script>  
+
+{% endblock %}
+ 
